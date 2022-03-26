@@ -1,12 +1,17 @@
 <template>
-    <div class="emt-flow-box">
-        <div class="view-area"
+    <div class="emt-flow-box"
+    >
+        <!-- <div class="view-area"
             :style="viewStyle"
-            @dblclick="resetZoom"
         >
         </div>
 
-        <div v-if="position" class="control-mask" @click.stop="zoomIn">
+        <div v-if="position"
+            class="control-mask"
+            @dblclick.stop="resetZoom"
+            @mouseenter="dragStart"
+            @mouseout="dragEnd"
+        >
             <div class="control-button" rel="up" @click.stop="moveView('top', -10)">
                 <i class="fas fa-caret-up"></i>
             </div>
@@ -32,11 +37,24 @@
         </div>
         <div v-else class="download-btn" @click="download">
             <i class="fas fa-cloud-download-alt"></i>
+        </div> -->
+
+        <image-zoom
+        	:regular="flowPic"
+	        :zoom="flowPic"
+            :zoom-amount="zoom"
+            img-class="img-fluid"
+        ></image-zoom>
+
+        <div class="download-btn" @click.stop="download">
+            <i class="fas fa-cloud-download-alt"></i>
         </div>
     </div>
 </template>
 <script>
 import { mapActions, mapMutations, mapGetters } from 'vuex';
+
+import imageZoom from 'vue-image-zoomer';
 
 // import $ from 'jquery';
 // import 'bootstrap';
@@ -45,14 +63,16 @@ import { mapActions, mapMutations, mapGetters } from 'vuex';
 // import { string, jsVars, popup, trackJS, localStorage, ppPanel } from 'lib/common/util';
 
 export default {
-    components: {},
+    components: {
+        imageZoom,
+    },
     filters: {},
     props: {},
     data(){
         return {
             flowPic: './dist/img/flow/EMT-Flow@2x-min.png',
             position: false,
-            zoom: 3,
+            zoom: 6,
         };
     },
     computed: {
@@ -94,8 +114,8 @@ export default {
 
             zoom += 1;
 
-            if (zoom > 6) {
-                zoom = 6;
+            if (zoom > 10) {
+                zoom = 10;
             }
 
             this.zoom = zoom;
@@ -149,6 +169,9 @@ export default {
             link.href = this.flowPic;
             link.download = "EMT-1 筆記.png";
             link.click();
+        },
+        test(){
+            console.log('test');
         },
     },
 };

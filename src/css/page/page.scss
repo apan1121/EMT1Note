@@ -52,9 +52,10 @@ body {
 
     .emt-flow-box{
         position: relative;
-        max-height: calc(100vh - 60px);
+        overflow: hidden;
         width: 100%;
-        height: calc(100vh - 60px);
+        border-radius: $spacer * 0.25;
+        box-shadow: 0px 0px 5px $gray-600;
         .control-mask{
             position: absolute;
             top: 0px;
@@ -63,28 +64,28 @@ body {
             height: 100%;
             .control-button{
                 position: absolute;
-                font-size: $spacer * 3;
                 color: $gray-900;
                 text-shadow: 0px 0px 5px $gray-700;
+                font-size: $spacer * 3;
                 cursor: pointer;
                 &[rel="up"] {
-                    left: 50%;
                     top: 10px;
+                    left: 50%;
                     transform: translateX(-50%);
                 }
                 &[rel="down"] {
-                    left: 50%;
                     bottom: 10px;
+                    left: 50%;
                     transform: translateX(-50%);
                 }
                 &[rel="left"] {
-                    left: 10px;
                     top: 50%;
+                    left: 10px;
                     transform: translateY(-50%);
                 }
                 &[rel="right"] {
-                    right: 10px;
                     top: 50%;
+                    right: 10px;
                     transform: translateY(-50%);
                 }
             }
@@ -101,7 +102,7 @@ body {
             right: 5px;
             bottom: 5px;
             width: 100px;
-            box-shadow: 0px 0px 5px #555;
+            box-shadow: 0px 0px 5px $gray-600;
             img{
                 width: 100%;
             }
@@ -118,7 +119,7 @@ body {
             height: 40px;
             border-radius: 2px;
             background: #EEE;
-            box-shadow: 0px 0px 5px #555;
+            box-shadow: 0px 0px 5px $gray-600;
             color: #999;
             font-size: 18px;
             cursor: pointer;
@@ -126,9 +127,11 @@ body {
     }
 
     .note-box{
+        overflow: hidden;
         padding: $spacer * 1.25;
         border-radius: $spacer * 0.25;
         background: $gray-200;
+        box-shadow: 0px 0px 5px $gray-600;
         .note-header{
             margin-bottom: $spacer * 0.75;
             .title{
