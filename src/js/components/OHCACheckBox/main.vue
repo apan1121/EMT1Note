@@ -11,7 +11,12 @@
         <div class="note-body">
             <grid-info :memos="memos"></grid-info>
 
-            <img style="width: 100%;" :src="flowPic">
+            <image-zoom
+                :regular="flowPic"
+                :zoom="flowPic"
+                :zoom-amount="2"
+                img-class="img-fluid"
+            ></image-zoom>
         </div>
     </div>
 </template>
@@ -19,6 +24,7 @@
 import { mapActions, mapMutations, mapGetters } from 'vuex';
 import BoxDefault from 'lib/common/mixins/BoxDefault';
 
+import imageZoom from 'vue-image-zoomer';
 // import $ from 'jquery';
 // import 'bootstrap';
 
@@ -26,7 +32,9 @@ import BoxDefault from 'lib/common/mixins/BoxDefault';
 // import { string, jsVars, popup, trackJS, localStorage, ppPanel } from 'lib/common/util';
 
 export default {
-    components: {},
+    components: {
+        imageZoom,
+    },
     mixins: [BoxDefault],
     filters: {},
     props: {},

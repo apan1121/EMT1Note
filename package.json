@@ -68,6 +68,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "sweetalert2": "^11.0.7",
+    "v-select2-component": "^0.4.7",
     "vue": "^2.5.17",
     "vue-enhanced-check": "^1.5.5",
     "vue-google-adsense": "^1.9.3",

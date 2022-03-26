@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import { mapActions, mapGetters, mapMutations } from 'vuex';
-import router from 'router';
+// import router from 'router';
 
 
 import app from './app';
@@ -52,7 +52,7 @@ const Page = new Vue({
                     if (width < pc_min_size) {
                         mode_type = 'mobile';
                     }
-                    console.log(width);
+
                     that.SetPageSetting({ mode_type, width });
                 }, 100);
             }).trigger('resize');
@@ -64,5 +64,5 @@ const Page = new Vue({
         },
     },
     store,
-    router,
+    // router,
 });

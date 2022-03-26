@@ -1,43 +1,6 @@
 <template>
     <div class="emt-flow-box"
     >
-        <!-- <div class="view-area"
-            :style="viewStyle"
-        >
-        </div>
-
-        <div v-if="position"
-            class="control-mask"
-            @dblclick.stop="resetZoom"
-            @mouseenter="dragStart"
-            @mouseout="dragEnd"
-        >
-            <div class="control-button" rel="up" @click.stop="moveView('top', -10)">
-                <i class="fas fa-caret-up"></i>
-            </div>
-            <div class="control-button" rel="down" @click.stop="moveView('top', +10)">
-                <i class="fas fa-caret-down"></i>
-            </div>
-            <div class="control-button" rel="left" @click.stop="moveView('left', -10)">
-                <i class="fas fa-caret-left"></i>
-            </div>
-            <div class="control-button" rel="right" @click.stop="moveView('left', 10)">
-                <i class="fas fa-caret-right"></i>
-            </div>
-        </div>
-
-
-        <div
-            v-if="!isMobile"
-            ref="previewArea"
-            class="preview-area"
-            @click.stop="checkPosition"
-        >
-            <img :src="flowPic">
-        </div>
-        <div v-else class="download-btn" @click="download">
-            <i class="fas fa-cloud-download-alt"></i>
-        </div> -->
 
         <image-zoom
         	:regular="flowPic"

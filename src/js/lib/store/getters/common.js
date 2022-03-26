@@ -5,4 +5,5 @@ export default {
     PageSetting_mode_type: state => state.PageSetting_mode_type,
 
     lang: state => state.lang,
+    adBlocked: state => state.adBlocked,
 };
