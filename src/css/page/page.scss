@@ -33,15 +33,20 @@ body {
 
     .grid-wrapper{
         column-count: 2;
-        column-gap: 1.5em;
+        /*欄數*/
+        column-gap: $spacer;
         @media (max-width: 700px){
             column-count: 1;
         }
         .grid{
-            display: inline-block;
-            padding: $spacer * 0.5;
-            margin: 0 0 1.5em;
-            width: 100%;
+            box-sizing: border-box;
+            margin: 0 auto 5px;
+            padding: 5px;
+            break-inside: avoid;
+
+            p {
+                margin-bottom: $spacer * 0.5;
+            }
         }
     }
 
@@ -50,6 +55,40 @@ body {
         max-height: calc(100vh - 60px);
         width: 100%;
         height: calc(100vh - 60px);
+        .control-mask{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            .control-button{
+                position: absolute;
+                font-size: $spacer * 3;
+                color: $gray-900;
+                text-shadow: 0px 0px 5px $gray-700;
+                cursor: pointer;
+                &[rel="up"] {
+                    left: 50%;
+                    top: 10px;
+                    transform: translateX(-50%);
+                }
+                &[rel="down"] {
+                    left: 50%;
+                    bottom: 10px;
+                    transform: translateX(-50%);
+                }
+                &[rel="left"] {
+                    left: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                &[rel="right"] {
+                    right: 10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
         .view-area{
             width: 100%;
             height: 100%;
@@ -79,17 +118,17 @@ body {
             height: 40px;
             border-radius: 2px;
             background: #EEE;
+            box-shadow: 0px 0px 5px #555;
             color: #999;
             font-size: 18px;
             cursor: pointer;
-            box-shadow: 0px 0px 5px #555;
         }
     }
 
     .note-box{
+        padding: $spacer * 1.25;
         border-radius: $spacer * 0.25;
         background: $gray-200;
-        padding: $spacer * 1.25;
         .note-header{
             margin-bottom: $spacer * 0.75;
             .title{
@@ -103,36 +142,42 @@ body {
             .memo{
                 margin-bottom: $spacer * 1;
                 .memo-title{
-                    font-weight: 900;
-                    color: $red-800;
-                    font-size: 18px;
                     margin-bottom: $spacer * 0.25;
+                    color: $red-800;
+                    font-weight: 900;
+                    font-size: 18px;
                 }
                 .memo-content{
+                    margin-bottom: $spacer * 0.25;
                     color: $gray-700;
                     font-size: 14px;
-                    margin-bottom: $spacer * 0.25;
                 }
             }
             .memo-item{
                 .memo-item-title{
-                    font-weight: 700;
-                    color: $blue-800;
-                    font-size: 16px;
                     margin-bottom: $spacer * 0.25;
+                    color: $blue-800;
+                    font-weight: 700;
+                    font-size: 16px;
                 }
                 .memo-item-content{
+                    margin-bottom: $spacer * 0.25;
                     color: $gray-700;
                     font-size: 14px;
-                    margin-bottom: $spacer * 0.25;
                 }
             }
             .grid-wrapper{
-                column-count: 2!important;
+                column-count: 2;
+                /*欄數*/
+                column-gap: $spacer;
                 .grid{
-
+                    box-sizing: border-box;
+                    margin: 0 auto 5px;
+                    padding: 5px;
+                    break-inside: avoid;
                 }
             }
         }
     }
+
 }

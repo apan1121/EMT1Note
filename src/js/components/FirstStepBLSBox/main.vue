@@ -2,35 +2,20 @@
     <div class="note-box">
         <div class="note-header">
             <h3 class="title">
-                初步檢查-非創傷
+                初步檢查-非創傷(BLS)
             </h3>
             <small>
-                著重迅速
+                評估內科
             </small>
         </div>
         <div class="note-body">
-            <div class="grid-wrapper">
-                <div v-for="(memo, memosIndex) in memos" :key="memosIndex" class="grid">
-                    <div
-                        class="memo"
-                    >
-                        <div class="memo-title" v-text="memo.title"></div>
-                        <pre v-if="memo.content" class="memo-content" v-text="memo.content"></pre>
-                        <template v-if="memo.items">
-                            <div v-for="(item, itemIndex) in memo.items" :key="itemIndex" class="memo-item">
-                                <div class="memo-item-title" v-text='item.title'></div>
-                                <pre class="memo-item-content" v-text='item.content'></pre>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </div>
+            <grid-info :memos="memos"></grid-info>
         </div>
     </div>
 </template>
 <script>
-import Masonry from 'masonry-layout';
 import { mapActions, mapMutations, mapGetters } from 'vuex';
+import BoxDefault from 'lib/common/mixins/BoxDefault';
 
 // import $ from 'jquery';
 // import 'bootstrap';
@@ -40,6 +25,7 @@ import { mapActions, mapMutations, mapGetters } from 'vuex';
 
 export default {
     components: {},
+    mixins: [BoxDefault],
     filters: {},
     props: {},
     data(){

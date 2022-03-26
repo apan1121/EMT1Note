@@ -9,29 +9,14 @@
             </small>
         </div>
         <div class="note-body">
-            <div class="grid-wrapper">
-                <div v-for="(memo, memosIndex) in memos" :key="memosIndex" class="grid">
-                    <div
-                        class="memo"
-                    >
-                        <div class="memo-title" v-text="memo.title"></div>
-                        <pre v-if="memo.content" class="memo-content" v-text="memo.content"></pre>
-                        <template v-if="memo.items">
-                            <div v-for="(item, itemIndex) in memo.items" :key="itemIndex" class="memo-item">
-                                <div class="memo-item-title" v-text='item.title'></div>
-                                <pre class="memo-item-content" v-text='item.content'></pre>
-                            </div>
-                        </template>
-                    </div>
-                </div>
-            </div>
+            <grid-info :memos="memos"></grid-info>
         </div>
     </div>
 </template>
 <script>
-import Masonry from 'masonry-layout';
 import { mapActions, mapMutations, mapGetters } from 'vuex';
 
+import BoxDefault from 'lib/common/mixins/BoxDefault';
 // import $ from 'jquery';
 // import 'bootstrap';
 
@@ -41,41 +26,11 @@ import { mapActions, mapMutations, mapGetters } from 'vuex';
 export default {
     components: {},
     filters: {},
+    mixins: [BoxDefault],
     props: {},
     data(){
         return {
             memos: [
-                {
-                    title: '脫困流程',
-                    content: `評估現場佈置安全救援環境
-接近傷患
- (頸椎限制＋XABCDE)
-傷患照護
- (包紮固定)
-脫困
-移動傷患
-`,
-                },
-                {
-                    title: '脫困選擇',
-                    content: ``,
-                    items: [{
-                        title: '一般車輛脫困',
-                        content: `確認車輛穩固
-使用脫困器材
-(頸椎固定＋KED)
-移至長背板
-`,
-                    },
-                    {
-                        title: '快速車輛脫困',
-                        content: `確認車輛穩固
-頸椎限制上頸圈
-意識初步評估
-移至長背板
-`,
-                    }],
-                },
                 {
                     title: '搬運傷患',
                     content: `儘速離開現場避免二次傷害`,
@@ -110,6 +65,37 @@ export default {
                         content: `長背板搬運
 搬運椅搬運
 搬運毯搬運
+`,
+                    }],
+                },
+                {
+                    title: '脫困流程',
+                    content: `評估現場佈置安全救援環境
+接近傷患
+ (頸椎限制＋XABCDE)
+傷患照護
+ (包紮固定)
+脫困
+移動傷患
+`,
+                },
+                {
+                    title: '脫困選擇',
+                    content: ``,
+                    items: [{
+                        title: '一般車輛脫困',
+                        content: `確認車輛穩固
+使用脫困器材
+(頸椎固定＋KED)
+移至長背板
+`,
+                    },
+                    {
+                        title: '快速車輛脫困',
+                        content: `確認車輛穩固
+頸椎限制上頸圈
+意識初步評估
+移至長背板
 `,
                     }],
                 },

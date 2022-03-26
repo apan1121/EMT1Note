@@ -9,17 +9,14 @@
             </small>
         </div>
         <div class="note-body">
-            <div v-for="(memo, memosIndex) in memos" :key="memosIndex" class="memo">
-                <div class="memo-title" v-text="memo.title"></div>
-                <pre class="memo-content" v-text="memo.content"></pre>
-            </div>
-
+            <grid-info :memos="memos"></grid-info>
         </div>
     </div>
 </template>
 <script>
 import { mapActions, mapMutations, mapGetters } from 'vuex';
 
+import BoxDefault from 'lib/common/mixins/BoxDefault';
 // import $ from 'jquery';
 // import 'bootstrap';
 
@@ -28,6 +25,7 @@ import { mapActions, mapMutations, mapGetters } from 'vuex';
 
 export default {
     components: {},
+    mixins: [BoxDefault],
     filters: {},
     props: {},
     data(){

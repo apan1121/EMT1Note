@@ -12,7 +12,10 @@
             </div>
             <div class="col-12">
                 <div ref="gridWrapper" class="grid-wrapper">
-                    <div class="grid mb-3">
+                    <div v-for="(component_name, index) in componentList" :key="component_name" class="grid">
+                        <component :is="component_name" :style="{ background: color[index % color.length]}"></component>
+                    </div>
+                    <!-- <div class="grid mb-3">
                         <env-safe-box></env-safe-box>
                     </div>
                     <div class="grid mb-3">
@@ -27,7 +30,16 @@
                     <div class="grid mb-3">
                         <first-step-b-l-s-box></first-step-b-l-s-box>
                     </div>
+                    <div class="grid mb-3">
+                        <first-step-a-l-s-box></first-step-a-l-s-box>
+                    </div>
+                    <div class="grid mb-3">
+                        <auxiliary-inspection-box></auxiliary-inspection-box>
+                    </div>
 
+                    <div class="grid mb-3">
+                        <ask-medical-history-box></ask-medical-history-box>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -52,11 +64,60 @@ export default {
         StartRuleBox: () => import('components/StartRuleBox/main.vue'),
         AVPUBox: () => import('components/AVPUBox/main.vue'),
         FirstStepBLSBox: () => import('components/FirstStepBLSBox/main.vue'),
+        FirstStepALSBox: () => import('components/FirstStepALSBox/main.vue'),
+        AuxiliaryInspectionBox: () => import('components/AuxiliaryInspectionBox/main.vue'),
+        AskMedicalHistoryBox: () => import('components/AskMedicalHistoryBox/main.vue'),
+        DesperateCheckBox: () => import('components/DesperateCheckBox/main.vue'),
+        SecondStepBLSBox: () => import('components/SecondStepBLSBox/main.vue'),
+        SecondStepALSBox: () => import('components/SecondStepALSBox/main.vue'),
+        ISBARBox: () => import('components/ISBARBox/main.vue'),
+        StretcherAndCardBox: () => import('components/StretcherAndCardBox/main.vue'),
+        GoToHospitalBox: () => import('components/GoToHospitalBox/main.vue'),
+        OHCACheckBox: () => import('components/OHCACheckBox/main.vue'),
+        GCSCheckBox: () => import('components/GCSCheckBox/main.vue'),
+        CervicalLimitBox: () => import('components/CervicalLimitBox/main.vue'),
+        ShockCheckBox: () => import('components/ShockCheckBox/main.vue'),
+        BreathCheckBox: () => import('components/BreathCheckBox/main.vue'),
+        ChildCheckBox: () => import('components/ChildCheckBox/main.vue'),
+        PregnantCheckBox: () => import('components/PregnantCheckBox/main.vue'),
+        OlderCheckBox: () => import('components/OlderCheckBox/main.vue'),
     },
     filters: {},
     props: {},
     data(){
-        return {};
+        return {
+            color: [
+                'rgba(247, 195, 37, 0.3)',
+                'rgba(101, 88, 245, 0.3)',
+                'rgba(44, 136, 217, 0.3)',
+                'rgba(232, 131, 58, 0.3)',
+                'rgba(211, 69, 91, 0.3)',
+            ],
+            componentList: [
+                'EnvSafeBox',
+                'OutOfTroubleBox',
+                'StartRuleBox',
+                'AVPUBox',
+                'FirstStepBLSBox',
+                'FirstStepALSBox',
+                'AuxiliaryInspectionBox',
+                'AskMedicalHistoryBox',
+                'DesperateCheckBox',
+                'SecondStepBLSBox',
+                'SecondStepALSBox',
+                'ISBARBox',
+                'StretcherAndCardBox',
+                'GoToHospitalBox',
+                'OHCACheckBox',
+                'GCSCheckBox',
+                'CervicalLimitBox',
+                'ShockCheckBox',
+                'BreathCheckBox',
+                'ChildCheckBox',
+                'PregnantCheckBox',
+                'OlderCheckBox',
+            ],
+        };
     },
     computed: {
         ...mapGetters([

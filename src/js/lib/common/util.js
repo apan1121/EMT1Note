@@ -6,6 +6,7 @@ import popup_module from './util/popup';
 import localStorage_module from './util/localStorage';
 import linkRegister_module from './util/linkRegister';
 import trackJS_module from './util/trackJS';
+import markdown_module from './util/markdown';
 
 
 const util = {
@@ -27,4 +28,5 @@ export const popup = popup_module;
 export const localStorage = localStorage_module;
 export const linkRegister = linkRegister_module;
 export const trackJS = trackJS_module;
+export const markdown = markdown_module;
 export default util;

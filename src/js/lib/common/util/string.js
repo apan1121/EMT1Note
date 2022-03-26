@@ -372,6 +372,14 @@ const carryFormatter_func = function(num, digits){
     return (num / si[i].value).toFixed(digits).replace(rx, '$1') + si[i].symbol;
 };
 
+const stringToHTML_func = function(str){
+    // Otherwise, fallback to old-school method
+    const dom = document.createElement('div');
+    dom.innerHTML = str;
+    return dom;
+};
+
+
 
 const main = {
     deepDiffMapper: deepDiffMapper_func,
@@ -401,6 +409,8 @@ const main = {
     uuid: uuid_func,
 
     carryFormatter: carryFormatter_func,
+
+    stringToHTML: stringToHTML_func,
 };
 
 export const deepDiffMapper = deepDiffMapper_func;
