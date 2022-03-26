@@ -1,4 +1,4 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{370:function(i,t,e){(function(i){
+(window.webpackJsonp=window.webpackJsonp||[]).push([[28],{371:function(i,t,e){(function(i){
 /*!
 imgLiquid v0.9.944 / 03-05-2013
 jQuery plugin to resize images to fit in a container.
