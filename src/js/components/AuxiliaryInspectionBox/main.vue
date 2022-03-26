@@ -34,8 +34,8 @@ export default {
             memos: [
                 {
                     title: '血壓',
-                    content: `收縮壓 90~120mmHg
-舒張壓 60~80mmHg
+                    content: `收縮壓 90 ~ 120 mmHg
+舒張壓 60 ~ 80 mmHg
 `,
                     items: [],
                 },
