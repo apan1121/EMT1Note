@@ -105,7 +105,7 @@
     </div>
 </template>
 <script>
-import Masonry from 'masonry-layout';
+import { trackJS } from 'lib/common/util';
 import { mapActions, mapMutations, mapGetters } from 'vuex';
 import { detectAnyAdblocker } from 'just-detect-adblock';
 
@@ -175,7 +175,7 @@ export default {
                     text: '其他',
                 },
             ],
-            focusTab: 'note',
+            focusTab: '',
             color: [
                 'rgba(247, 195, 37, 0.2)',
                 'rgba(101, 88, 245, 0.2)',
@@ -313,6 +313,18 @@ export default {
         },
     },
     watch: {
+        focusTab: {
+            deep: true,
+            handler(){
+                console.log('focusTab', this.focusTab);
+                trackJS.mixpanel('page_view', {
+                    page_id: this.focusTab,
+                });
+                trackJS.gtag('event', 'page_view', {
+                    page_id: this.focusTab,
+                });
+            },
+        },
         NoteGotoBox(){
             if (!!this.NoteGotoBox && 1) {
                 const { NoteGotoBox } = this;
@@ -345,6 +357,7 @@ export default {
     },
     mounted(){
         this.init();
+        this.focusTab = this.tabs[0].key;
 
         // this.$nextTick(() => {
         //     new Masonry(this.$refs.gridWrapper, {
